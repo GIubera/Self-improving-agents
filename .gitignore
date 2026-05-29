@@ -1,0 +1,19 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Temp / logs
+*.tmp
+*.log
+
+# Note: self-improving-agents.skill is intentionally NOT ignored —
+# it's the installable artifact people download. Keep it committed.
