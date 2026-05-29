@@ -1,0 +1,29 @@
+{
+  "skill_name": "self-improving-agents",
+  "evals": [
+    {
+      "id": 0,
+      "name": "degrading-copytrade",
+      "prompt": "Sto costruendo un bot che copia i trade di altri wallet su Hyperliquid. Funziona ma dopo un paio di settimane inizia a perdere sugli stessi errori, continua a copiare wallet che ormai vanno male. Come lo rendo capace di migliorare da solo invece di ripetere gli stessi sbagli?",
+      "expected_output": "Should recognize this as a self-improving agent problem. Should separate execution vs improvement layer, map the 5 loops onto copytrade (wallet=source, trade=action), prioritize monitoring+pruning+protection, and surface anti-patterns (single-outcome reactions, farmer sources, realized-vs-paper). Should give a blueprint/checklist, NOT dump a full code implementation.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "news-scraper-nontrading",
+      "prompt": "Voglio progettare un agente che fa scraping di fonti di notizie per un mio prodotto, ma le fonti cambiano qualita nel tempo: alcune diventano spam, altre nuove e buone spuntano. Come gli faccio scoprire fonti nuove e buttare quelle scadenti in automatico, senza che io debba controllare ogni giorno?",
+      "expected_output": "Should generalize the pattern to a NON-trading domain. Source=news feed, action=scrape/ingest, realized=article quality/engagement. Should propose discovery (with quality gates against spam) + pruning (performance floor + min sample) + monitoring. Should NOT be trading-specific. Should warn about overfitting filters and single-outcome reactions.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "audit-autotuning",
+      "prompt": "Ho un trading bot che ha gia l'auto-tuning dei parametri: ogni poche ore aggiusta da solo le sue soglie. Ma onestamente non migliora davvero, gira da un mese e siamo punto e a capo. Puoi farmi un audit e dirmi cosa manca?",
+      "expected_output": "Should run an audit using the checklist. Critically should identify 'parameter-tuning theater' — that auto-tuning alone is the weakest loop and often just oscillates while masking structural problems. Should ask whether the real issue is structural (bad sources, no protection) and point to the missing loops (pruning, protection, realized-tracking).",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
